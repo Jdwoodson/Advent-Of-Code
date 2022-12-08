@@ -1,2 +1,4 @@
-# advent_of_code_2022
-Advent of Code 2022 edition
+# Advent Of Code!
+
+Advent of Code
+https://adventofcode.com/
