@@ -4,14 +4,16 @@ with open('2022/day4/assignment_input.txt', encoding="utf8") as f:
 counter = 0
 
 
-def elf_compare(elf1, elf2) -> bool:
+def elf_compare(elf1, elf2):
     """
     compare elves yo
     """
-    if (elf1 in elf2) or (elf2 in elf1):
-        return True
-    else:
-        return False
+    for assignment in elf1:
+        if assignment in elf2:
+            return True
+    for assignment in elf2:
+        if assignment in elf1:
+            return True
 
 
 for line in text:
@@ -22,12 +24,12 @@ for line in text:
     elf1_end = elf1[1]
     elf2_start = int(elf2[0])
     elf2_end = int(elf2[1])
-    elf1_range = ''.join('-' + str(x) + '-'
-                         for x in range(int(elf1_start),
-                                        int(elf1_end) + 1))
-    elf2_range = ''.join('-' + str(x) + '-'
-                         for x in range(int(elf2_start),
-                                        int(elf2_end) + 1))
+    elf1_range = []
+    for x in range(int(elf1_start),int(elf1_end) + 1):
+        elf1_range.append(x)
+    elf2_range = []
+    for x in range(int(elf2_start),int(elf2_end) + 1):
+        elf2_range.append(x)
     if elf_compare(elf1_range, elf2_range):
         counter += 1
 
